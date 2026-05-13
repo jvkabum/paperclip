@@ -22,8 +22,10 @@ if [ "$(id -g node)" -ne "$PGID" ]; then
     changed=1
 fi
 
-if [ "$changed" = "1" ]; then
-    chown -R node:node /paperclip
-fi
+# Ensure required directories exist and have correct ownership/permissions
+mkdir -p /paperclip/.gemini
+mkdir -p /paperclip/instances/default
+chown -R node:node /paperclip
+chmod -R 775 /paperclip
 
 exec gosu node "$@"
