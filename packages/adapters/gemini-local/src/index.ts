@@ -11,21 +11,25 @@ export const SANDBOX_INSTALL_COMMAND = buildSandboxNpmInstallCommand("@google/ge
 export const DEFAULT_GEMINI_LOCAL_MODEL = "auto";
 
 export const models = [
-  { id: DEFAULT_GEMINI_LOCAL_MODEL, label: "Auto" },
+  { id: DEFAULT_GEMINI_LOCAL_MODEL, label: "Auto (Recomendado)" },
+  { id: "gemini-3.1-pro-preview", label: "Gemini 3.1 Pro (Preview)" },
+  { id: "gemini-3.1-flash-lite-preview", label: "Gemini 3.1 Flash Lite (Preview)" },
+  { id: "gemini-3-pro-preview", label: "Gemini 3 Pro (Preview)" },
+  { id: "gemini-3-flash-preview", label: "Gemini 3 Flash (Preview)" },
   { id: "gemini-2.5-pro", label: "Gemini 2.5 Pro" },
   { id: "gemini-2.5-flash", label: "Gemini 2.5 Flash" },
   { id: "gemini-2.5-flash-lite", label: "Gemini 2.5 Flash Lite" },
-  { id: "gemini-2.0-flash", label: "Gemini 2.0 Flash" },
-  { id: "gemini-2.0-flash-lite", label: "Gemini 2.0 Flash Lite" },
+  { id: "gemma-4-31b-it", label: "Gemma 4 31B IT" },
+  { id: "gemma-4-26b-a4b-it", label: "Gemma 4 26B A4B IT" },
 ];
 
 export const modelProfiles: AdapterModelProfileDefinition[] = [
   {
     key: "cheap",
     label: "Cheap",
-    description: "Use Gemini Flash Lite as the budget Gemini CLI lane while preserving the primary model.",
+    description: "Use Gemini 3.1 Flash Lite as the budget Gemini CLI lane while preserving the primary model.",
     adapterConfig: {
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-3.1-flash-lite-preview",
     },
     source: "adapter_default",
   },
